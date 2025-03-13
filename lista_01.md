@@ -13,10 +13,12 @@ Ao final, publique seu arquivo lista_01.md com as respostas em seu repositório,
 Questões objetivas
 1) Considerando a execução do código abaixo, indique a alternativa correta e justifique sua resposta.
 
+```javascript
 console.log(x);
 var x = 5;
 console.log(y);
 let y = 10;
+```
 **a) A saída será undefined seguido de erro**
 **Justificativa: Para o primeiro console.log(x) será undefined pois a variável foi atribuída, mesmo que depois do console.log(), e caso se a variavél x estivesse antes do cosole.log(), teria saído uma resposta. Agora para o consle.log(y), sua saída foi erro, pois a variável criada com let é limitada por ser apenas atribuída no seu escopo, resultando em uma variável sem atribuição numérica. **
 
@@ -28,6 +30,7 @@ d) A saída será erro em ambas as linhas que utilizam console.log
 
 2) O seguinte código JavaScript tem um erro que impede sua execução correta. Analise e indique a opção que melhor corrige o problema. Justifique sua resposta.
 
+```javascript
 function soma(a, b) {
     if (a || b === 0) {
         return "Erro: número inválido";
@@ -35,8 +38,9 @@ function soma(a, b) {
     return a + b;
 }
 console.log(soma(2, 0));
+```
 **a) Substituir if (a || b === 0) por if (a === 0 || b === 0)**
-**Justificativa: Para o código anterior, há um erro, que se traduz quanto a estutura if para verificar se 'a' e 'b' são iguais a 0. A estrutura 'if (a || b === 0)' está incorreta pois apenas verifica o valor numérico de "b", enquanto 'a' seria sempre lido como 'true' para qualquer valor diferente de zero. Como solução, 'a' também deve ser especificada no código, ficando 'if (a === 0 || b === 0)' e tornando-o correto. **
+**Justificativa: Para o código anterior, há um erro, que se traduz quanto a estutura if para verificar se 'a' e 'b' são iguais a 0. A estrutura 'if (a || b === 0)' está incorreta pois apenas verifica o valor numérico de "b", enquanto 'a' seria sempre lido como 'true' para qualquer valor diferente de zero. Como solução, 'a' também deve ser especificada no código, ficando 'if (a === 0 || b === 0)' e tornando-o correto.**
 
 b) Substituir if (a || b === 0) por if (a === 0 && b === 0)
 
@@ -46,6 +50,7 @@ d) Remover completamente a verificação if (a || b === 0)
 
 3) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.
 
+```javascript
 function calcularPreco(tipo) {
     let preco;
 
@@ -66,6 +71,7 @@ function calcularPreco(tipo) {
 }
 
 console.log(calcularPreco("eletrônico"));
+```
 a) O código imprime 1000.
 
 **b) O código imprime 200.**
@@ -77,11 +83,13 @@ d) O código gera um erro.
 
 4) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.
 
+```javascript
 let numeros = [1, 2, 3, 4, 5];
 
 let resultado = numeros.map(x => x * 2).filter(x => x > 5).reduce((a, b) => a + b, 0);
 
 console.log(resultado);
+```
 a) 0
 
 b) 6
@@ -93,9 +101,11 @@ c) 18
 
 5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.
 
+```javascript
 let lista = ["banana", "maçã", "uva", "laranja"];
 lista.splice(1, 2, "abacaxi", "manga");
 console.log(lista);
+```
 a) ["banana", "maçã", "uva", "abacaxi", "manga", "laranja"]
 
 b) ["banana", "abacaxi", "manga"]
@@ -121,6 +131,7 @@ d) A primeira afirmação é falsa, e a segunda é verdadeira.
 
 7) Dado o seguinte código. Indique a alternativa correta e justifique sua resposta.
 
+```javascript
 class Pessoa {
   constructor(nome, idade) {
     this.nome = nome;
@@ -143,6 +154,7 @@ class Funcionario extends Pessoa {
     console.log(`Meu salário é R$ ${this.salario}.`);
   }
 }
+```
 I) A classe Funcionario herda de Pessoa e pode acessar os atributos nome e idade diretamente.
 II) O método apresentar() da classe Funcionario sobrepõe o método apresentar() da classe Pessoa, mas chama o método da classe pai usando super.
 III) O código não funciona corretamente, pois Funcionario não pode herdar de Pessoa como uma classe, já que o JavaScript não suporta herança de classes.
@@ -174,6 +186,7 @@ d) A asserção é verdadeira e a razão é verdadeira, e a razão explica a ass
 
 Questões dissertativas
 O seguinte código deve retornar a soma do dobro dos números de um array, mas contém erros. Identifique os problema e corrija o código para que funcione corretamente. Adicione comentários ao código explicado sua solução para cada problema.
+```javascript
 function somaArray(numeros) {
 
     for (i = 0; i < numeros.size; i++) {
@@ -182,7 +195,56 @@ function somaArray(numeros) {
     return soma;
 }
 console.log(somaArray([1, 2, 3, 4]));
+```
+```javascript
+//criação das variáveis
+var numeros = [1, 2, 3, 4];
+var soma = 0;
+
+//mudando numeros.seize para numeros.lenght, pois é a nomenclaura padrão para chamar um cumprimento de uma array
+function somaArray(numeros) {
+    for(i=0; i<numeros.lenght; i++) {
+        //para que o loop seja criado, é necessário colocar o '+' antes do '='
+        soma += 2*numeros[i];
+    }
+    return soma;
+}
+    console.log(somaArray(numeros));
+```
+
 Crie um exemplo prático no qual você tenha duas classes:
 Uma classe Produto com atributos nome e preco, e um método calcularDesconto() que aplica um desconto fixo de 10% no preço do produto.
 Uma classe Livro que herda de Produto e modifica o método calcularDesconto(), aplicando um desconto de 20% no preço dos livros.
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe Livro.
+```javascript
+//criação da classe Produto
+class Produto {
+    constructor(nome, preco) {
+    this.nome = nome;
+    this.preco = preco;
+    }
+
+//criação do método calcularDesconto()
+    calcularDesconto() {
+        this.preco = this.preco * 0.9;
+    }
+}
+
+//criação da classe que herda a classe Produto
+class Livro extends Produto {
+    calcularDesconto() {
+        this.preco = this.preco * 0.8; //redefinição de 'calcularDesconto'
+    }
+}
+
+    //criação das variáveis 'produto' e 'livro'
+    produto = new Produto("Marca texto", 7.5)
+    livro = new Livro("O Príncipe", 24.99)
+
+    //criando a relação das variáveis com os métodos
+    produto.calculasDesconto();
+    livro.calcularDesconto
+
+    console.log(produto)
+    console.log(livro)
+```
